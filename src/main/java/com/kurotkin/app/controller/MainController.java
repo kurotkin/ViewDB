@@ -2,8 +2,10 @@ package com.kurotkin.app.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import org.springframework.stereotype.Component;
 
-public class MainController {
+@Component
+public class MainController extends Controller{
     @FXML private Button load;
 
     /**
