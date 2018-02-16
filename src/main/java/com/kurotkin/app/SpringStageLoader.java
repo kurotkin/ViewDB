@@ -16,6 +16,7 @@ import java.io.IOException;
 @Component
 public class SpringStageLoader implements ApplicationContextAware {
     private static ApplicationContext staticContext;
+
     //инъекция заголовка главного окна
     @Value("${title}")
     private String appTitle;
@@ -62,5 +63,9 @@ public class SpringStageLoader implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         SpringStageLoader.staticContext = context;
         SpringStageLoader.staticTitle = appTitle;
+    }
+
+    public static Scene loadScene(String fxmlName) throws IOException {
+        return new Scene(load(fxmlName));
     }
 }
